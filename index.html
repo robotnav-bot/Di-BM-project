@@ -106,7 +106,7 @@
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
-          <img src="./static/images/intro_1.png" alt="Overview" style="width: 30%;">
+          <img src="./static/images/intro_1.png" alt="Overview" style="width: 40%;">
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
           </h2>
         </div>
@@ -120,7 +120,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified is-size-5">
           <p>
             Imitation learning has demonstrated strong performance in robotic manipulation by learning from large-scale human demonstrations. While existing models excel at single-task learning, it is observed in practical applications that their performance degrades in the multi-task setting, where interference across tasks leads to an averaging effect. To address this issue, we propose to learn diverse skills for behavior models with Mixture of Experts, referred to as <strong>Di-BM</strong>. Di-BM associates each expert with a distinct observation distribution, enabling experts to specialize in sub-regions of the observation space.  
 Specifically, we employ energy-based models to represent expert-specific observation distributions and jointly train them alongside the corresponding action models.
@@ -138,7 +138,7 @@ Our approach is plug-and-play and can be seamlessly integrated into standard imi
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <img src="./static/images/overview-new.png" alt="Overview" style="width: 100%;">
-          <h2 class="subtitle has-text-centered is-size-6" style="margin-top: 15px; font-weight: normal;">
+          <h2 class="subtitle has-text-centered is-size-5" style="margin-top: 15px; font-weight: normal;">
             We propose <strong>Di-BM</strong> - Diverse skill learning for Behavior Models designed to acquire primitive skills from multi-task datasets. By leveraging EBM-based observation distributions together with a gating network, Di-BM automatically allocates experts to its preferred domain.
           </h2>
         </div>
@@ -147,29 +147,12 @@ Our approach is plug-and-play and can be seamlessly integrated into standard imi
   </div>
 </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">System Architecture</h2>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            Our system introduces a shortcut-based one-step generation paradigm for navigation world model. Unlike traditional diffusion models that require expensive iterative denoising, our world model directly predicts a sequence of 11 future frames in a single step. We utilize a 3D U-Net backbone operating within a VAE latent space. To handle high-dimensional video data efficiently, we employ a hybrid CNN-Transformer architecture with decoupled spatial and temporal attention. Specifically, a window-based temporal attention mechanism allows the model to capture complex dynamics without the quadratic complexity of full global attention. We integrate this lightweight world model into a model-based planning framework using the Cross-Entropy Method (CEM). To ensure robust performance under limited computational budgets (small sample size), we propose an anchor-based initialization strategy. Instead of random sampling, this approach initializes candidate trajectories using fixed velocity priors, significantly improving the planner's efficiency and success rate across multi-modal tasks (Image, Language, and Point goals).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Experiments</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3">Simulation Experiments</h2>
+        <div class="content has-text-justified is-size-5">
           <p>
             We conduct experiments in the RoboTwin simulator and present the visualizations here. The right side of the video displays the real-time variation in the selection probability of each expert as the task progresses. It can be observed that different experts are assigned to different stages of various tasks, demonstrating that they have mastered distinct skills.
           </p>
@@ -229,6 +212,62 @@ Our approach is plug-and-play and can be seamlessly integrated into standard imi
       </div>
     </div>
     
+    <div class="columns is-centered has-text-centered" style="margin-top: 20px;">
+      <div class="column is-full-width">
+        <img src="./static/images/table1.png" alt="Simulation Results Table" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Real-World Experiments</h2>
+        <div class="content has-text-justified is-size-5">
+          <p>
+            We conduct experiments in the real-world with Nova5 robot arm and evaluate our method on 9 real-world manipulation tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/realworld.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered" style="margin-top: 20px;">
+      <div class="column is-full-width">
+          <img src="./static/images/table3.png" alt="Real World Results Table" style="width: 100%;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Advantage In Post-training</h2>
+        <div class="content has-text-justified is-size-5">
+          <p>
+            Building on the hypothesis that each expert in Di-BM specializes in a subset of primitive skills, we expect the pretrained Di-BM to adapt more efficiently to unseen tasks through post-training.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered" style="margin-top: 20px;">
+      <div class="column is-full-width">
+        <img src="./static/images/fig5.png" alt="Post-training Results" style="width: 100%;">
+      </div>
+    </div>
+
   </div>
 </section>
 
